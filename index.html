@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigate scheme converter</title>
+    <script>
+        let url = ["jetbrains://idea/navigate/reference", location.search].join("");
+        if (open(url)) {
+            close();
+        } else {
+            document.addEventListener("DOMContentLoaded", ev => {
+                document.body.innerHTML = `<div style="text-align: center;">
+                    <h1>
+                        Navigate to
+                        <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+                        with use
+                        <a href="https://www.jetbrains.com/toolbox-app/">ToolBox App</a>
+                        ...
+                    </h1>
+                    <h2 id="url">
+                        <a href="${url}">${url}</a>
+                    </h2>
+                </div>`;
+            });
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
